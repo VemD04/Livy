@@ -1,0 +1,33 @@
+<Application x:Class="Livy.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:tb="http://www.hardcodet.net/taskbar"
+             xmlns:helpers="clr-namespace:Livy.Helpers">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Colors.Dark.xaml" />
+                <ResourceDictionary Source="Resources/Icons.xaml" />
+                <ResourceDictionary Source="Resources/Styles.xaml" />
+                <ResourceDictionary Source="Resources/Strings.en.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Application-wide Converters -->
+            <helpers:BoolToVisibilityConverter x:Key="BoolToVisibility" />
+            <helpers:BoolToVisibilityInverseConverter x:Key="BoolToVisibilityInverse" />
+            <helpers:BoolInverseConverter x:Key="BoolInverseConverter" />
+            <helpers:StringMatchConverter x:Key="StringMatchConverter" />
+            <helpers:StringToColorBrushConverter x:Key="StringToColorBrush" />
+
+
+            <ContextMenu x:Key="TrayMenu" Background="{DynamicResource SecondaryBackgroundBrush}" Foreground="{DynamicResource TextPrimaryBrush}" BorderBrush="{DynamicResource BorderBrush}">
+                <MenuItem Header="{DynamicResource Tray_Open}" Click="TrayOpen_Click" Foreground="{DynamicResource TextPrimaryBrush}" />
+                <MenuItem x:Name="TrayPauseItem" Tag="Pause" Header="{DynamicResource Tray_Pause}" Click="TrayPause_Click" Foreground="{DynamicResource TextPrimaryBrush}" />
+                <Separator Background="{DynamicResource BorderBrush}" />
+                <MenuItem Header="{DynamicResource Tray_Settings}" Click="TraySettings_Click" Foreground="{DynamicResource TextPrimaryBrush}" />
+                <Separator Background="{DynamicResource BorderBrush}" />
+                <MenuItem Header="{DynamicResource Tray_Exit}" Click="TrayExit_Click" Foreground="{DynamicResource DangerBrush}" />
+            </ContextMenu>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

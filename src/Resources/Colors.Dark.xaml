@@ -1,0 +1,55 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Primary Colors (Midnight Navy Slate from Livy Logo) -->
+    <Color x:Key="BackgroundColor">#0B0E17</Color>
+    <Color x:Key="SecondaryBackgroundColor">#111624</Color>
+    <Color x:Key="CardColor">#171D2F</Color>
+    <Color x:Key="CardHoverColor">#1F273E</Color>
+
+    <!-- Text Colors -->
+    <Color x:Key="TextPrimaryColor">#F8FAFC</Color>
+    <Color x:Key="TextSecondaryColor">#94A3B8</Color>
+
+    <!-- Accent Colors (Livy Logo: Electric Blue & Indigo Violet) -->
+    <Color x:Key="AccentColor">#3C7BFB</Color>
+    <Color x:Key="AccentHoverColor">#51A2FF</Color>
+    <Color x:Key="AccentPressedColor">#2563EB</Color>
+    <Color x:Key="AccentPetalColor">#5C73FB</Color>
+
+    <!-- Status Colors -->
+    <Color x:Key="SuccessColor">#10B981</Color>
+    <Color x:Key="DangerColor">#EF4444</Color>
+    <Color x:Key="WarningColor">#F59E0B</Color>
+
+    <!-- Border & Control -->
+    <Color x:Key="BorderColor">#232B40</Color>
+    <Color x:Key="ControlBackgroundColor">#232B40</Color>
+    <Color x:Key="ScrollBarThumbColor">#2E3852</Color>
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="SecondaryBackgroundBrush" Color="{StaticResource SecondaryBackgroundColor}" />
+    <SolidColorBrush x:Key="CardBrush" Color="{StaticResource CardColor}" />
+    <SolidColorBrush x:Key="CardHoverBrush" Color="{StaticResource CardHoverColor}" />
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource AccentHoverColor}" />
+    <SolidColorBrush x:Key="AccentPressedBrush" Color="{StaticResource AccentPressedColor}" />
+    <SolidColorBrush x:Key="AccentPetalBrush" Color="{StaticResource AccentPetalColor}" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}" />
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{StaticResource ControlBackgroundColor}" />
+    <SolidColorBrush x:Key="ScrollBarThumbBrush" Color="{StaticResource ScrollBarThumbColor}" />
+
+    <!-- Livy Signature Logo Gradient Brush -->
+    <LinearGradientBrush x:Key="LogoGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#49ACFC" Offset="0.0" />
+        <GradientStop Color="#3C7BFB" Offset="0.5" />
+        <GradientStop Color="#5C73FB" Offset="1.0" />
+    </LinearGradientBrush>
+
+</ResourceDictionary>

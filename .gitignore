@@ -1,0 +1,58 @@
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+*.dbmdl
+*.jsproj.user
+
+## Visual Studio Code
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+
+## Inno Setup output
+[Ii]nstaller/[Oo]utput/
+Output/
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## Mac / Linux
+.DS_Store
+
+## Package & temporary files
+*.nupkg
+*.snupkg
+*.cab
+*.msi
+*.msm
+*.msp

@@ -1,0 +1,169 @@
+<Window x:Class="Livy.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Livy.Views"
+        xmlns:vm="clr-namespace:Livy.ViewModels"
+        xmlns:helpers="clr-namespace:Livy.Helpers"
+        mc:Ignorable="d"
+        Title="Livy" Height="720" Width="1080"
+        MinHeight="600" MinWidth="800"
+        WindowStartupLocation="CenterScreen"
+        Icon="pack://application:,,,/Assets/AppIcon.ico"
+        Background="{DynamicResource BackgroundBrush}"
+        Foreground="{DynamicResource TextPrimaryBrush}"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        StateChanged="Window_StateChanged"
+        SourceInitialized="Window_SourceInitialized"
+        TextOptions.TextFormattingMode="Display"
+        TextOptions.TextRenderingMode="ClearType"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True"
+        FontFamily="Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif">
+
+    <!-- WindowChrome: handles resize border hit-testing and caption drag.
+         CaptionHeight=0 because we manage drag ourselves via TitleBar_MouseLeftButtonDown.
+         ResizeBorderThickness provides the 6px resize grip on all edges. -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"
+                      CornerRadius="0"
+                      GlassFrameThickness="0"
+                      ResizeBorderThickness="6"
+                      UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+
+    <!-- WindowBorder: visual styling only (inner border stroke + inner clip for content).
+         DWM handles the actual OS-level rounded-corner clipping of all 4 corners. -->
+    <Border x:Name="WindowBorder"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="14"
+            Background="{DynamicResource BackgroundBrush}"
+            Margin="0"
+            RenderOptions.ClearTypeHint="Enabled">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Custom Title Bar -->
+            <Grid Grid.Row="0" Background="{DynamicResource SecondaryBackgroundBrush}" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Icon and Title -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="14,0,0,0" VerticalAlignment="Center">
+                    <Border CornerRadius="7" Width="28" Height="28" Margin="0,0,9,0" ClipToBounds="True">
+                        <Image Source="pack://application:,,,/Assets/logo.png" RenderOptions.BitmapScalingMode="HighQuality" />
+                    </Border>
+                    <TextBlock Text="Livy" Foreground="{DynamicResource TextPrimaryBrush}" FontWeight="SemiBold" FontSize="14" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <!-- Window Controls -->
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Button Style="{StaticResource SidebarButton}" Padding="16,0" Click="Minimize_Click" Focusable="False">
+                        <Path Data="{StaticResource MinimizeIcon}" Fill="{DynamicResource TextSecondaryBrush}" Stretch="Uniform" Width="10" Height="10" />
+                    </Button>
+                    <Button Style="{StaticResource SidebarButton}" Padding="16,0" Click="Maximize_Click" Focusable="False">
+                        <Path Data="{StaticResource MaximizeIcon}" Fill="{DynamicResource TextSecondaryBrush}" Stretch="Uniform" Width="10" Height="10" />
+                    </Button>
+                    <Button Style="{StaticResource SidebarButton}" Padding="16,0" Click="Close_Click" Focusable="False">
+                        <Path Data="{StaticResource CloseIcon}" Fill="{DynamicResource TextSecondaryBrush}" Stretch="Uniform" Width="10" Height="10" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!-- Main Content Area -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Sidebar -->
+                <Border Grid.Column="0" Background="{DynamicResource SecondaryBackgroundBrush}">
+                    <StackPanel Margin="12,24,12,12">
+                        <Button Command="{Binding NavigateHomeCommand}" Margin="0,0,0,8">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource SidebarButton}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentPage}" Value="Home">
+                                            <Setter Property="Background" Value="{DynamicResource CardBrush}" />
+                                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+                                            <Setter Property="FontWeight" Value="Medium" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <StackPanel Orientation="Horizontal">
+                                <Path Data="{StaticResource HomeIcon}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Stretch="Uniform" Width="16" Height="16" Margin="0,0,12,0" />
+                                <TextBlock Text="{DynamicResource Nav_Home}" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Command="{Binding NavigateSettingsCommand}" Margin="0,0,0,8">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource SidebarButton}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentPage}" Value="Settings">
+                                            <Setter Property="Background" Value="{DynamicResource CardBrush}" />
+                                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+                                            <Setter Property="FontWeight" Value="Medium" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <StackPanel Orientation="Horizontal">
+                                <Path Data="{StaticResource SettingsIcon}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Stretch="Uniform" Width="16" Height="16" Margin="0,0,12,0" />
+                                <TextBlock Text="{DynamicResource Nav_Settings}" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Command="{Binding NavigateAboutCommand}" Margin="0,0,0,8">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource SidebarButton}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding CurrentPage}" Value="About">
+                                            <Setter Property="Background" Value="{DynamicResource CardBrush}" />
+                                            <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+                                            <Setter Property="FontWeight" Value="Medium" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <StackPanel Orientation="Horizontal">
+                                <Path Data="{StaticResource AboutIcon}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Stretch="Uniform" Width="16" Height="16" Margin="0,0,12,0" />
+                                <TextBlock Text="{DynamicResource Nav_About}" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <!-- Page Content -->
+                <ContentControl Grid.Column="1" Content="{Binding CurrentView}">
+                    <ContentControl.Resources>
+                        <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                            <local:HomeView />
+                        </DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+                            <local:SettingsView />
+                        </DataTemplate>
+                        <DataTemplate DataType="{x:Type vm:AboutViewModel}">
+                            <local:AboutView />
+                        </DataTemplate>
+                    </ContentControl.Resources>
+                </ContentControl>
+
+                <!-- Welcome Screen Overlay -->
+                <local:WelcomeView x:Name="WelcomeOverlay" Grid.ColumnSpan="2" Panel.ZIndex="10" Visibility="Collapsed" />
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

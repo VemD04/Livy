@@ -1,0 +1,394 @@
+<UserControl x:Class="Livy.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                  Style="{StaticResource PageTransitionStyle}"
+                  PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+        <StackPanel Margin="32,24" MaxWidth="640">
+
+            <TextBlock Text="{DynamicResource Settings_Title}" Style="{StaticResource HeaderText}" Margin="0,0,0,24" />
+
+            <!-- ===== General ===== -->
+            <TextBlock Text="{DynamicResource Settings_General}" Style="{StaticResource SubHeaderText}" Margin="0,0,0,12" />
+
+            <!-- Theme -->
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Theme Icon Badge -->
+                    <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                            Background="{DynamicResource SecondaryBackgroundBrush}"
+                            BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                            Margin="0,0,14,0" VerticalAlignment="Center">
+                        <Path Data="{StaticResource ThemeIcon}" Fill="{DynamicResource AccentBrush}"
+                              Width="17" Height="17" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="{DynamicResource Settings_Theme}" Style="{StaticResource BodyText}" Margin="0,0,0,2" />
+                        <TextBlock Text="{DynamicResource Settings_ThemeDesc}" Style="{StaticResource CaptionText}" />
+                    </StackPanel>
+                    <!-- Theme Toggle Switch: Left = Dark (Moon), Right = Light (Sun) -->
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding ThemeLabel}" Style="{StaticResource CaptionText}"
+                                   FontWeight="Medium" VerticalAlignment="Center" Margin="0,0,12,0" />
+                        <ToggleButton Style="{StaticResource ThemeToggleSwitch}"
+                                       IsChecked="{Binding IsLightMode}"
+                                       VerticalAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Language -->
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Language Icon Badge -->
+                        <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                                Background="{DynamicResource SecondaryBackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                                Margin="0,0,14,0" VerticalAlignment="Center">
+                            <Path Data="{StaticResource LanguageIcon}" Fill="{DynamicResource AccentBrush}"
+                                  Width="17" Height="17" Stretch="Uniform"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="{DynamicResource Settings_Language}" Style="{StaticResource BodyText}" Margin="0,0,0,2" />
+                            <TextBlock Text="{DynamicResource Settings_LanguageDesc}" Style="{StaticResource CaptionText}" />
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="50,12,0,0">
+                        <RadioButton Content="{DynamicResource Settings_LangEnglish}"
+                                     IsChecked="{Binding Language, Converter={StaticResource StringMatchConverter}, ConverterParameter=English}"
+                                     Margin="0,0,24,0" GroupName="LangGroup" />
+                        <RadioButton Content="{DynamicResource Settings_LangIndonesian}"
+                                     IsChecked="{Binding Language, Converter={StaticResource StringMatchConverter}, ConverterParameter=Indonesian}"
+                                     GroupName="LangGroup" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Confirm Delete -->
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,24">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Shield Icon Badge -->
+                    <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                            Background="{DynamicResource SecondaryBackgroundBrush}"
+                            BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                            Margin="0,0,14,0" VerticalAlignment="Center">
+                        <Path Data="{StaticResource ShieldIcon}" Fill="#F59E0B"
+                              Width="17" Height="17" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="{DynamicResource Settings_ConfirmDelete}" Style="{StaticResource BodyText}" Margin="0,0,0,2" />
+                        <TextBlock Text="{DynamicResource Settings_ConfirmDeleteDesc}" Style="{StaticResource CaptionText}" />
+                    </StackPanel>
+                    <ToggleButton Grid.Column="2" Style="{StaticResource ToggleSwitch}"
+                                   IsChecked="{Binding ConfirmBeforeDelete}" VerticalAlignment="Center" />
+                </Grid>
+            </Border>
+
+            <!-- ===== Startup ===== -->
+            <TextBlock Text="{DynamicResource Settings_Startup}" Style="{StaticResource SubHeaderText}" Margin="0,0,0,12" />
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,24">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Startup Icon Badge -->
+                    <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                            Background="{DynamicResource SecondaryBackgroundBrush}"
+                            BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                            Margin="0,0,14,0" VerticalAlignment="Center">
+                        <Path Data="{StaticResource StartupIcon}" Fill="{DynamicResource AccentBrush}"
+                              Width="17" Height="17" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="{DynamicResource Settings_StartWithWindows}" Style="{StaticResource BodyText}" Margin="0,0,0,2" />
+                        <TextBlock Text="{DynamicResource Settings_StartWithWindowsDesc}" Style="{StaticResource CaptionText}" />
+                    </StackPanel>
+                    <ToggleButton Grid.Column="2" Style="{StaticResource ToggleSwitch}"
+                                   IsChecked="{Binding StartWithWindows}" VerticalAlignment="Center" />
+                </Grid>
+            </Border>
+
+            <!-- ===== Audio ===== -->
+            <TextBlock Text="{DynamicResource Settings_Audio}" Style="{StaticResource SubHeaderText}" Margin="0,0,0,12" />
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Audio Icon Badge -->
+                    <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                            Background="{DynamicResource SecondaryBackgroundBrush}"
+                            BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                            Margin="0,0,14,0" VerticalAlignment="Center">
+                        <Path Data="{StaticResource VolumeIcon}" Fill="{DynamicResource AccentBrush}"
+                              Width="17" Height="17" Stretch="Uniform"
+                              HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="{DynamicResource Settings_Audio}" Style="{StaticResource BodyText}" Margin="0,0,0,2" />
+                        <TextBlock Text="{DynamicResource Settings_AudioDesc}" Style="{StaticResource CaptionText}" />
+                    </StackPanel>
+                    <ToggleButton Grid.Column="2" Style="{StaticResource ToggleSwitch}"
+                                   IsChecked="{Binding AudioEnabled}" VerticalAlignment="Center" />
+                </Grid>
+            </Border>
+            <Border Margin="0,0,0,24">
+                <Border.Style>
+                    <Style TargetType="Border" BasedOn="{StaticResource CardStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding AudioEnabled}" Value="False">
+                                <Setter Property="Opacity" Value="0.45" />
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <StackPanel>
+                    <Grid Margin="0,0,0,14">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="{DynamicResource Settings_Volume}" Style="{StaticResource BodyText}" Margin="0,0,0,2" />
+                            <TextBlock Text="{DynamicResource Settings_VolumeDesc}" Style="{StaticResource CaptionText}" />
+                        </StackPanel>
+                        <!-- Volume Percentage Chip -->
+                        <Border Grid.Column="1" Background="{DynamicResource SecondaryBackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                                CornerRadius="8" Padding="12,5" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Volume, StringFormat={}{0}%}"
+                                       FontWeight="Bold" FontSize="13"
+                                       Foreground="{DynamicResource AccentBrush}" />
+                        </Border>
+                    </Grid>
+
+                    <!-- Volume Bar Row with Speaker Icon -->
+                    <Grid VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Speaker Icon -->
+                        <Path Grid.Column="0" Data="{StaticResource VolumeIcon}"
+                              Fill="{DynamicResource AccentBrush}"
+                              Width="18" Height="18" Stretch="Uniform"
+                              VerticalAlignment="Center" Margin="0,0,14,0" Opacity="0.85" />
+                        <!-- Styled Volume Slider -->
+                        <Slider Grid.Column="1" Style="{StaticResource VolumeSlider}"
+                                Value="{Binding Volume}" IsEnabled="{Binding AudioEnabled}" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- ===== Wallpaper ===== -->
+            <TextBlock Text="{DynamicResource Settings_Display}" Style="{StaticResource SubHeaderText}" Margin="0,0,0,12" />
+
+            <!-- Wallpaper Display Preview Card -->
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,12">
+                <StackPanel>
+                    <Grid Margin="0,0,0,14">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Wallpaper Icon Badge -->
+                        <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                                Background="{DynamicResource SecondaryBackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                                Margin="0,0,14,0" VerticalAlignment="Center">
+                            <Path Data="{StaticResource WallpapersIcon}" Fill="{DynamicResource AccentBrush}"
+                                  Width="17" Height="17" Stretch="Uniform"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="{DynamicResource Settings_WallpaperPreview}" Style="{StaticResource BodyText}" Margin="0,0,0,2" />
+                            <TextBlock Text="{Binding ScalingDescription}" Style="{StaticResource CaptionText}" TextWrapping="Wrap" />
+                        </StackPanel>
+                        <!-- Active Mode Badge -->
+                        <Border Grid.Column="2" Background="{DynamicResource SecondaryBackgroundBrush}" CornerRadius="6" Padding="10,4" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding WallpaperScaling}" FontWeight="SemiBold" FontSize="11" Foreground="{DynamicResource AccentBrush}" />
+                        </Border>
+                    </Grid>
+
+                    <!-- Monitor Mockup Frame -->
+                    <Border HorizontalAlignment="Center" Margin="0,6,0,16">
+                        <StackPanel HorizontalAlignment="Center">
+                            <!-- Monitor Bezel & Screen -->
+                            <Border Width="340" Height="192" CornerRadius="8" Background="#0F1015"
+                                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="3" ClipToBounds="True">
+                                <Grid Background="Black">
+                                    <!-- Fallback Sample Wallpaper Gradient -->
+                                    <Border Visibility="{Binding HasActiveWallpaper, Converter={StaticResource BoolToVisibility}, ConverterParameter=Inverse}">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                <GradientStop Color="#4F46E5" Offset="0" />
+                                                <GradientStop Color="#7C3AED" Offset="0.5" />
+                                                <GradientStop Color="#EC4899" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Path Data="{StaticResource WallpapersIcon}" Fill="White" Width="32" Height="32" Stretch="Uniform" HorizontalAlignment="Center" Margin="0,0,0,8" Opacity="0.8" />
+                                            <TextBlock Text="{DynamicResource Settings_SampleWallpaper}" Foreground="White" FontSize="12" FontWeight="Medium" HorizontalAlignment="Center" />
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- Wallpaper Image Rendered with Selected Scaling Stretch Mode -->
+                                    <Image Source="{Binding ActiveWallpaperThumbnail}"
+                                           Stretch="{Binding ScalingStretchMode}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           RenderOptions.BitmapScalingMode="HighQuality" />
+
+                                    <!-- Mini Windows Taskbar Overlay -->
+                                    <Border VerticalAlignment="Bottom" Height="18" Background="#CC181926">
+                                        <Grid Margin="8,0">
+                                            <!-- Center Taskbar Icons Mockup -->
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Border Width="7" Height="7" CornerRadius="1.5" Background="#60A5FA" Margin="2,0" />
+                                                <Border Width="7" Height="7" CornerRadius="1.5" Background="#34D399" Margin="2,0" />
+                                                <Border Width="7" Height="7" CornerRadius="1.5" Background="#F472B6" Margin="2,0" />
+                                                <Border Width="7" Height="7" CornerRadius="1.5" Background="#A78BFA" Margin="2,0" />
+                                                <Border Width="7" Height="7" CornerRadius="1.5" Background="#FBBF24" Margin="2,0" />
+                                            </StackPanel>
+
+                                            <!-- Mini Clock on Right -->
+                                            <TextBlock Text="12:00" Foreground="#A1A1AA" FontSize="8" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </Border>
+
+                            <!-- Monitor Stand Neck & Base -->
+                            <Border Width="28" Height="10" Background="{DynamicResource BorderBrush}" HorizontalAlignment="Center" />
+                            <Border Width="84" Height="4" CornerRadius="2" Background="{DynamicResource BorderBrush}" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Display Status Footer -->
+                    <Border Background="{DynamicResource SecondaryBackgroundBrush}" CornerRadius="6" Padding="12,8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Path Grid.Column="0" Data="{StaticResource DotIcon}" Fill="{DynamicResource SuccessBrush}" Width="8" Height="8" Stretch="Uniform" VerticalAlignment="Center" Margin="0,0,8,0" />
+                            <TextBlock Grid.Column="1" Text="{Binding DisplayDescription}" Style="{StaticResource CaptionText}" VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- Scaling Options -->
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Scale Icon Badge -->
+                        <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                                Background="{DynamicResource SecondaryBackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                                Margin="0,0,14,0" VerticalAlignment="Center">
+                            <Path Data="{StaticResource ScaleIcon}" Fill="{DynamicResource AccentBrush}"
+                                  Width="17" Height="17" Stretch="Uniform"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="{DynamicResource Settings_Scaling}" Style="{StaticResource BodyText}" />
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Grid.Row="1" Margin="50,10,0,0">
+                        <RadioButton Content="{DynamicResource Settings_ScalingFill}"
+                                     IsChecked="{Binding WallpaperScaling, Converter={StaticResource StringMatchConverter}, ConverterParameter=Fill}"
+                                     GroupName="Scaling" />
+                        <RadioButton Content="{DynamicResource Settings_ScalingFit}"
+                                     IsChecked="{Binding WallpaperScaling, Converter={StaticResource StringMatchConverter}, ConverterParameter=Fit}"
+                                     GroupName="Scaling" />
+                        <RadioButton Content="{DynamicResource Settings_ScalingStretch}"
+                                     IsChecked="{Binding WallpaperScaling, Converter={StaticResource StringMatchConverter}, ConverterParameter=Stretch}"
+                                     GroupName="Scaling" />
+                        <RadioButton Content="{DynamicResource Settings_ScalingCenter}"
+                                     IsChecked="{Binding WallpaperScaling, Converter={StaticResource StringMatchConverter}, ConverterParameter=Center}"
+                                     GroupName="Scaling" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Display On Options -->
+            <Border Style="{StaticResource CardStyle}" Margin="0,0,0,32">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Monitor Icon Badge -->
+                        <Border Grid.Column="0" Width="36" Height="36" CornerRadius="10"
+                                Background="{DynamicResource SecondaryBackgroundBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"
+                                Margin="0,0,14,0" VerticalAlignment="Center">
+                            <Path Data="{StaticResource MonitorIcon}" Fill="{DynamicResource AccentBrush}"
+                                  Width="17" Height="17" Stretch="Uniform"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Text="{DynamicResource Settings_DisplayOn}" Style="{StaticResource BodyText}" />
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Grid.Row="1" Margin="50,10,0,0">
+                        <RadioButton Content="{DynamicResource Settings_DisplayAll}"
+                                     IsChecked="{Binding WallpaperDisplay, Converter={StaticResource StringMatchConverter}, ConverterParameter=All}"
+                                     GroupName="Display" />
+                        <RadioButton Content="{DynamicResource Settings_DisplayPrimary}"
+                                     IsChecked="{Binding WallpaperDisplay, Converter={StaticResource StringMatchConverter}, ConverterParameter=Primary}"
+                                     GroupName="Display" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

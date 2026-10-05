@@ -1,0 +1,188 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Navigation -->
+    <sys:String x:Key="Nav_Home">Beranda</sys:String>
+    <sys:String x:Key="Nav_Wallpapers">Wallpaper</sys:String>
+    <sys:String x:Key="Nav_Settings">Pengaturan</sys:String>
+    <sys:String x:Key="Nav_About">Tentang</sys:String>
+
+    <!-- TitleBar -->
+    <sys:String x:Key="Title_App">Livy</sys:String>
+    <sys:String x:Key="Title_Minimize">Minimalkan</sys:String>
+    <sys:String x:Key="Title_Maximize">Maksimalkan</sys:String>
+    <sys:String x:Key="Title_Close">Tutup</sys:String>
+
+    <!-- Home View -->
+    <sys:String x:Key="Home_CurrentWallpaper">Wallpaper Saat Ini</sys:String>
+    <sys:String x:Key="Home_Resolution">Resolusi</sys:String>
+    <sys:String x:Key="Home_Fps">FPS</sys:String>
+    <sys:String x:Key="Home_Duration">Durasi</sys:String>
+    <sys:String x:Key="Home_Status">Status</sys:String>
+    <sys:String x:Key="Home_StatusRunning">Berjalan</sys:String>
+    <sys:String x:Key="Home_StatusPaused">Dijeda</sys:String>
+    <sys:String x:Key="Home_StatusGamePaused">Game Terdeteksi (Dijeda - GPU/CPU Dilepas)</sys:String>
+    <sys:String x:Key="Home_StatusStopped">Berhenti</sys:String>
+    <sys:String x:Key="Home_NoWallpaperSelected">Belum ada wallpaper yang dipilih</sys:String>
+    <sys:String x:Key="Home_Pause">Jeda</sys:String>
+    <sys:String x:Key="Home_Resume">Lanjutkan</sys:String>
+    <sys:String x:Key="Home_Remove">Hapus</sys:String>
+    <sys:String x:Key="Home_ChangeWallpaper">Ganti Wallpaper</sys:String>
+    <sys:String x:Key="Home_EmptyTitle">Belum ada wallpaper aktif</sys:String>
+    <sys:String x:Key="Home_EmptyDesc">Pilih wallpaper dari koleksi Anda atau tambahkan video baru untuk memulai.</sys:String>
+    <sys:String x:Key="Home_GoToLibrary">Buka Koleksi</sys:String>
+
+    <!-- Seamless Loop Modes -->
+    <sys:String x:Key="Home_LoopTitle">Optimasi Loop Animasi</sys:String>
+    <sys:String x:Key="Home_LoopPingPong">Maju - Mundur (Ping-Pong)</sys:String>
+    <sys:String x:Key="Home_LoopPingPongDesc">Animasi memutar maju lalu mundur kembali ke posisi awal secara mulus tanpa patah/tersendat.</sys:String>
+    <sys:String x:Key="Home_LoopCrossfade">Pudar Halus (Crossfade)</sys:String>
+    <sys:String x:Key="Home_LoopCrossfadeDesc">Ujung akhir video memudar halus menyatu dengan awal video.</sys:String>
+    <sys:String x:Key="Home_LoopStandard">Standar</sys:String>
+    <sys:String x:Key="Home_LoopStandardDesc">Loop biasa dari awal ke akhir video.</sys:String>
+    <sys:String x:Key="Home_OptimizingLoop">Sedang mengoptimalkan loop mulus...</sys:String>
+
+    <!-- Wallpapers View -->
+    <sys:String x:Key="Wallpapers_Title">Koleksi Wallpaper</sys:String>
+    <sys:String x:Key="Wallpapers_Add">Tambah Wallpaper</sys:String>
+    <sys:String x:Key="Wallpapers_Apply">Terapkan Wallpaper</sys:String>
+    <sys:String x:Key="Wallpapers_Applying">Menerapkan...</sys:String>
+    <sys:String x:Key="Wallpapers_Delete">Hapus</sys:String>
+    <sys:String x:Key="Wallpapers_EmptyTitle">Koleksi wallpaper masih kosong</sys:String>
+    <sys:String x:Key="Wallpapers_EmptyDesc">Klik 'Tambah Wallpaper' untuk memasukkan video wallpaper favorit Anda (.mp4, .webm, .mkv).</sys:String>
+    <sys:String x:Key="Wallpapers_ConfirmDeleteTitle">Konfirmasi Hapus</sys:String>
+    <sys:String x:Key="Wallpapers_ConfirmDeleteMessage">Apakah Anda yakin ingin menghapus "{0}" dari koleksi?</sys:String>
+    <sys:String x:Key="Wallpapers_FileNotFound">File wallpaper tidak ditemukan.</sys:String>
+    <sys:String x:Key="Wallpapers_CannotPlay">Wallpaper tidak dapat diputar.</sys:String>
+    <sys:String x:Key="Wallpapers_Preview">Pratinjau</sys:String>
+    <sys:String x:Key="Preview_Title">Pratinjau Wallpaper</sys:String>
+    <sys:String x:Key="Preview_Close">Tutup</sys:String>
+    <sys:String x:Key="Preview_Apply">Terapkan Wallpaper</sys:String>
+    <sys:String x:Key="Preview_Active">Sedang Diterapkan</sys:String>
+    <sys:String x:Key="Home_ClickToPreview">Klik untuk melihat pratinjau wallpaper</sys:String>
+
+    <!-- Add Wallpaper Dialog -->
+    <sys:String x:Key="AddDialog_Title">Tambah Wallpaper</sys:String>
+    <sys:String x:Key="AddDialog_DragDropPrompt">Tarik &amp; lepas file video di sini</sys:String>
+    <sys:String x:Key="AddDialog_ClickPrompt">atau klik di mana saja untuk memilih file</sys:String>
+    <sys:String x:Key="AddDialog_DropNow">Lepaskan file video di sini untuk mengupload</sys:String>
+    <sys:String x:Key="AddDialog_SupportedFormats">Mendukung format MP4, WebM, MKV, AVI, MOV</sys:String>
+    <sys:String x:Key="AddDialog_Processing">Sedang menyimpan &amp; mengoptimalkan wallpaper...</sys:String>
+    <sys:String x:Key="AddDialog_Importing">Mengimpor Wallpaper...</sys:String>
+    <sys:String x:Key="AddDialog_ExtractingDetails">Mengekstrak informasi &amp; membuat thumbnail video...</sys:String>
+    <sys:String x:Key="AddDialog_NoValidFiles">Silakan pilih file video yang didukung (.mp4, .webm, .mkv, .avi, .mov).</sys:String>
+    <sys:String x:Key="AddDialog_Close">Tutup</sys:String>
+
+    <!-- Edit Wallpaper Dialog -->
+    <sys:String x:Key="EditDialog_Title">Edit Wallpaper</sys:String>
+    <sys:String x:Key="EditDialog_Name">Nama Wallpaper</sys:String>
+    <sys:String x:Key="EditDialog_LoopMode">Mode Loop Animasi</sys:String>
+    <sys:String x:Key="EditDialog_Cancel">Batal</sys:String>
+    <sys:String x:Key="EditDialog_Save">Simpan</sys:String>
+
+    <!-- Settings View -->
+    <sys:String x:Key="Settings_Title">Pengaturan</sys:String>
+    <sys:String x:Key="Settings_General">Umum</sys:String>
+    <sys:String x:Key="Settings_Theme">Tema</sys:String>
+    <sys:String x:Key="Settings_ThemeDesc">Pilih tampilan tema gelap atau terang</sys:String>
+    <sys:String x:Key="Settings_ThemeDark">Mode Gelap</sys:String>
+    <sys:String x:Key="Settings_ThemeLight">Mode Terang</sys:String>
+    <sys:String x:Key="Settings_Language">Bahasa</sys:String>
+    <sys:String x:Key="Settings_LanguageDesc">Pilih bahasa tampilan aplikasi</sys:String>
+    <sys:String x:Key="Settings_LangEnglish">English</sys:String>
+    <sys:String x:Key="Settings_LangIndonesian">Bahasa Indonesia</sys:String>
+    <sys:String x:Key="Settings_ConfirmDelete">Konfirmasi sebelum menghapus wallpaper</sys:String>
+    <sys:String x:Key="Settings_ConfirmDeleteDesc">Minta konfirmasi sebelum menghapus wallpaper dari koleksi</sys:String>
+    <sys:String x:Key="Settings_Startup">Mulai Otomatis</sys:String>
+    <sys:String x:Key="Settings_StartWithWindows">Jalankan saat Windows dimulai</sys:String>
+    <sys:String x:Key="Settings_StartWithWindowsDesc">Jalankan Livy secara otomatis saat komputer menyala</sys:String>
+    <sys:String x:Key="Settings_StartMinimized">Mulai terminimalkan</sys:String>
+    <sys:String x:Key="Settings_StartMinimizedDesc">Buka Livy di system tray latar belakang</sys:String>
+    <sys:String x:Key="Settings_Performance">Performa</sys:String>
+    <sys:String x:Key="Settings_PerformanceMode">Mode Performa</sys:String>
+    <sys:String x:Key="Settings_PerfBalanced">Seimbang (Default)</sys:String>
+    <sys:String x:Key="Settings_PerfLowPower">Hemat Daya</sys:String>
+    <sys:String x:Key="Settings_PerfMaxQuality">Kualitas Maksimal</sys:String>
+    <sys:String x:Key="Settings_PauseFullscreen">Jeda wallpaper saat ada aplikasi layar penuh</sys:String>
+    <sys:String x:Key="Settings_PauseBattery">Jeda wallpaper saat menggunakan daya baterai</sys:String>
+    <sys:String x:Key="Settings_Audio">Audio Wallpaper</sys:String>
+    <sys:String x:Key="Settings_AudioDesc">Putar audio dari video wallpaper</sys:String>
+    <sys:String x:Key="Settings_Volume">Volume</sys:String>
+    <sys:String x:Key="Settings_VolumeDesc">Atur kenyaringan suara video wallpaper</sys:String>
+    <sys:String x:Key="Settings_Display">Wallpaper</sys:String>
+    <sys:String x:Key="Settings_Scaling">Penskalaan Wallpaper</sys:String>
+    <sys:String x:Key="Settings_ScalingFill">Fill (Potong agar pas layar)</sys:String>
+    <sys:String x:Key="Settings_ScalingFit">Fit (Pertahankan rasio aspek)</sys:String>
+    <sys:String x:Key="Settings_ScalingStretch">Stretch (Regangkan ke seluruh layar)</sys:String>
+    <sys:String x:Key="Settings_ScalingCenter">Tengah (Ukuran asli)</sys:String>
+    <sys:String x:Key="Settings_DisplayOn">Tampilkan pada</sys:String>
+    <sys:String x:Key="Settings_DisplayAll">Semua Layar / Monitor</sys:String>
+    <sys:String x:Key="Settings_DisplayPrimary">Hanya Monitor Utama</sys:String>
+    <sys:String x:Key="Settings_Reset">Kembalikan ke Pengaturan Awal</sys:String>
+    <sys:String x:Key="Settings_WallpaperPreview">Pratinjau Tampilan Layar</sys:String>
+    <sys:String x:Key="Settings_SampleWallpaper">Contoh Wallpaper</sys:String>
+    <sys:String x:Key="Settings_DescFill">Gambar diperbesar memenuhi layar, tepi gambar dipotong jika rasio berbeda.</sys:String>
+    <sys:String x:Key="Settings_DescFit">Seluruh gambar pas di layar tanpa terpotong (bilah hitam dapat muncul di sisi).</sys:String>
+    <sys:String x:Key="Settings_DescStretch">Gambar ditarik mengisi seluruh layar (rasio aspek gambar diabaikan).</sys:String>
+    <sys:String x:Key="Settings_DescCenter">Gambar ditampilkan di tengah layar sesuai resolusi aslinya.</sys:String>
+    <sys:String x:Key="Settings_DescPrimaryOnly">Diterapkan hanya pada Layar Utama ({0})</sys:String>
+    <sys:String x:Key="Settings_DescAllMonitors">Diterapkan pada semua layar terhubung ({0} layar)</sys:String>
+
+    <!-- About View -->
+    <sys:String x:Key="About_Tagline">Bring Your Desktop to Life.</sys:String>
+    <sys:String x:Key="About_Version">Versi 1.0.0</sys:String>
+    <sys:String x:Key="About_Platform">Dibuat khusus untuk Windows (x64)</sys:String>
+    <sys:String x:Key="About_Developer">Pengembang</sys:String>
+    <sys:String x:Key="About_DeveloperName">VemD04</sys:String>
+    <sys:String x:Key="About_VisitGitHub">GitHub</sys:String>
+    <sys:String x:Key="About_Documentation">Panduan &amp; Dokumentasi</sys:String>
+    <sys:String x:Key="About_SupportTitle">Dukung Pengembang</sys:String>
+    <sys:String x:Key="About_SupportDesc">Dukung pengembangan Livy agar terus berkembang, bebas iklan, dan mendapatkan pembaruan fitur terbaik.</sys:String>
+    <sys:String x:Key="About_SupportMerchant">Penerima</sys:String>
+    <sys:String x:Key="About_SupportNmid">NMID</sys:String>
+    <sys:String x:Key="About_SupportCopyNmid">Salin NMID</sys:String>
+    <sys:String x:Key="About_SupportCopied">NMID berhasil disalin ke clipboard!</sys:String>
+    <sys:String x:Key="About_SupportStep1">Buka aplikasi Mobile Banking atau e-Wallet (GoPay, OVO, DANA, BCA, dll.)</sys:String>
+    <sys:String x:Key="About_SupportStep2">Pilih menu Scan QRIS dan arahkan kamera ke barcode di samping</sys:String>
+    <sys:String x:Key="About_SupportStep3">Masukkan nominal dukungan secara sukarela</sys:String>
+    <sys:String x:Key="About_SupportThankYou">Terima kasih banyak atas apresiasi dan dukungan Anda untuk Livy! ❤️</sys:String>
+    <sys:String x:Key="About_GuideTitle">Panduan Penggunaan Wallpaper</sys:String>
+    <sys:String x:Key="About_CrudCreateTitle">1. Menambahkan Wallpaper Baru</sys:String>
+    <sys:String x:Key="About_CrudCreateDesc">Klik tombol "+ Tambah Wallpaper" di halaman Beranda. Pilih file video yang didukung (.mp4, .webm, .mkv, .avi, .mov). Livy otomatis menyimpan video ke pustaka lokal dan membuat cuplikan thumbnail secara instan.</sys:String>
+    <sys:String x:Key="About_CrudReadTitle">2. Menjelajah &amp; Melihat Pratinjau</sys:String>
+    <sys:String x:Key="About_CrudReadDesc">Jelajahi seluruh koleksi wallpaper di galeri Beranda dengan informasi resolusi dan durasi. Klik thumbnail atau tombol "Pratinjau" untuk melihat tampilan wallpaper secara layar penuh (fullscreen) sebelum menerapkannya ke desktop.</sys:String>
+    <sys:String x:Key="About_CrudUpdateTitle">3. Mengatur Info &amp; Mode Animasi Loop</sys:String>
+    <sys:String x:Key="About_CrudUpdateDesc">Klik kanan kartu wallpaper dan pilih "Edit" untuk mengubah judul atau mode pemutaran loop. Tersedia mode Normal, Seamless Ping-Pong (maju-mundur mulus tanpa jeda), dan Crossfade agar tampilan animasi selaras dengan preferensi Anda.</sys:String>
+    <sys:String x:Key="About_CrudDeleteTitle">4. Menghapus Wallpaper dari Koleksi</sys:String>
+    <sys:String x:Key="About_CrudDeleteDesc">Arahkan kursor pada kartu wallpaper lalu klik ikon tong sampah merah di kiri atas thumbnail, atau klik kanan kartu dan pilih "Hapus". Konfirmasi pada jendela dialog untuk membersihkan wallpaper dari pustaka.</sys:String>
+    <sys:String x:Key="About_FeaturesTitle">Fitur Utama</sys:String>
+    <sys:String x:Key="About_AppInfoTitle">Tentang Aplikasi Livy</sys:String>
+    <sys:String x:Key="About_AppInfoDesc">Livy adalah aplikasi live wallpaper modern, ringan, dan elegan yang dirancang khusus untuk mempercantik desktop Windows Anda tanpa mengorbankan performa sistem.</sys:String>
+    <sys:String x:Key="About_AppEnginesTitle">Engine &amp; Teknologi yang Digunakan</sys:String>
+    <sys:String x:Key="About_EngineVideoPlayer">Pemutar Video</sys:String>
+    <sys:String x:Key="About_EngineVideoProc">Pemrosesan Video</sys:String>
+    <sys:String x:Key="About_EngineHwAccel">Akselerasi GPU</sys:String>
+    <sys:String x:Key="About_EngineFramework">Framework Desktop</sys:String>
+    <sys:String x:Key="About_EngineDesktopHook">Integrasi Desktop</sys:String>
+    <sys:String x:Key="App_AlreadyRunning">Livy sudah berjalan di latar belakang (System Tray). Klik dua kali ikon Livy di pojok kanan bawah taskbar untuk membukanya.</sys:String>
+
+    <!-- Welcome View -->
+    <sys:String x:Key="Welcome_Title">Selamat Datang di Livy</sys:String>
+    <sys:String x:Key="Welcome_Tagline">Bring Your Desktop to Life.</sys:String>
+    <sys:String x:Key="Welcome_GetStarted">Mulai Sekarang</sys:String>
+
+    <!-- Tray Menu -->
+    <sys:String x:Key="Tray_Open">Buka Livy</sys:String>
+    <sys:String x:Key="Tray_Pause">Jeda Wallpaper</sys:String>
+    <sys:String x:Key="Tray_Resume">Lanjutkan Wallpaper</sys:String>
+    <sys:String x:Key="Tray_Settings">Pengaturan</sys:String>
+    <sys:String x:Key="Tray_Exit">Tutup Livy sepenuhnya</sys:String>
+
+    <!-- Modern Dialog -->
+    <sys:String x:Key="Dialog_OK">OK</sys:String>
+    <sys:String x:Key="Dialog_Cancel">Batal</sys:String>
+    <sys:String x:Key="Dialog_Yes">Ya</sys:String>
+    <sys:String x:Key="Dialog_No">Tidak</sys:String>
+
+</ResourceDictionary>

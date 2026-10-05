@@ -1,0 +1,188 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Navigation -->
+    <sys:String x:Key="Nav_Home">Home</sys:String>
+    <sys:String x:Key="Nav_Wallpapers">Wallpapers</sys:String>
+    <sys:String x:Key="Nav_Settings">Settings</sys:String>
+    <sys:String x:Key="Nav_About">About</sys:String>
+
+    <!-- TitleBar -->
+    <sys:String x:Key="Title_App">Livy</sys:String>
+    <sys:String x:Key="Title_Minimize">Minimize</sys:String>
+    <sys:String x:Key="Title_Maximize">Maximize</sys:String>
+    <sys:String x:Key="Title_Close">Close</sys:String>
+
+    <!-- Home View -->
+    <sys:String x:Key="Home_CurrentWallpaper">Current Wallpaper</sys:String>
+    <sys:String x:Key="Home_Resolution">Resolution</sys:String>
+    <sys:String x:Key="Home_Fps">FPS</sys:String>
+    <sys:String x:Key="Home_Duration">Duration</sys:String>
+    <sys:String x:Key="Home_Status">Status</sys:String>
+    <sys:String x:Key="Home_StatusRunning">Running</sys:String>
+    <sys:String x:Key="Home_StatusPaused">Paused</sys:String>
+    <sys:String x:Key="Home_StatusGamePaused">Game Detected (Paused - GPU/CPU Released)</sys:String>
+    <sys:String x:Key="Home_StatusStopped">Stopped</sys:String>
+    <sys:String x:Key="Home_NoWallpaperSelected">No wallpaper selected</sys:String>
+    <sys:String x:Key="Home_Pause">Pause</sys:String>
+    <sys:String x:Key="Home_Resume">Resume</sys:String>
+    <sys:String x:Key="Home_Remove">Remove</sys:String>
+    <sys:String x:Key="Home_ChangeWallpaper">Change Wallpaper</sys:String>
+    <sys:String x:Key="Home_EmptyTitle">No wallpaper active</sys:String>
+    <sys:String x:Key="Home_EmptyDesc">Select a wallpaper from your library or add a new one to get started.</sys:String>
+    <sys:String x:Key="Home_GoToLibrary">Go to Library</sys:String>
+
+    <!-- Seamless Loop Modes -->
+    <sys:String x:Key="Home_LoopTitle">Animation Loop Optimization</sys:String>
+    <sys:String x:Key="Home_LoopPingPong">Forward - Reverse (Ping-Pong)</sys:String>
+    <sys:String x:Key="Home_LoopPingPongDesc">Plays forward then reverses back to start smoothly without cuts or stutter.</sys:String>
+    <sys:String x:Key="Home_LoopCrossfade">Smooth Crossfade</sys:String>
+    <sys:String x:Key="Home_LoopCrossfadeDesc">Smoothly dissolves the end of the video into the beginning.</sys:String>
+    <sys:String x:Key="Home_LoopStandard">Standard</sys:String>
+    <sys:String x:Key="Home_LoopStandardDesc">Standard loop from start to finish.</sys:String>
+    <sys:String x:Key="Home_OptimizingLoop">Optimizing seamless loop...</sys:String>
+
+    <!-- Wallpapers View -->
+    <sys:String x:Key="Wallpapers_Title">My Wallpapers</sys:String>
+    <sys:String x:Key="Wallpapers_Add">Add Wallpaper</sys:String>
+    <sys:String x:Key="Wallpapers_Apply">Apply Wallpaper</sys:String>
+    <sys:String x:Key="Wallpapers_Applying">Applying...</sys:String>
+    <sys:String x:Key="Wallpapers_Delete">Delete</sys:String>
+    <sys:String x:Key="Wallpapers_EmptyTitle">No wallpapers in library</sys:String>
+    <sys:String x:Key="Wallpapers_EmptyDesc">Click 'Add Wallpaper' to import your favorite video wallpapers (.mp4, .webm, .mkv).</sys:String>
+    <sys:String x:Key="Wallpapers_ConfirmDeleteTitle">Confirm Delete</sys:String>
+    <sys:String x:Key="Wallpapers_ConfirmDeleteMessage">Are you sure you want to remove "{0}" from the library?</sys:String>
+    <sys:String x:Key="Wallpapers_FileNotFound">Wallpaper file not found.</sys:String>
+    <sys:String x:Key="Wallpapers_CannotPlay">Wallpaper cannot be played.</sys:String>
+    <sys:String x:Key="Wallpapers_Preview">Preview</sys:String>
+    <sys:String x:Key="Preview_Title">Wallpaper Preview</sys:String>
+    <sys:String x:Key="Preview_Close">Close</sys:String>
+    <sys:String x:Key="Preview_Apply">Apply Wallpaper</sys:String>
+    <sys:String x:Key="Preview_Active">Currently Applied</sys:String>
+    <sys:String x:Key="Home_ClickToPreview">Click to preview wallpaper</sys:String>
+
+    <!-- Add Wallpaper Dialog -->
+    <sys:String x:Key="AddDialog_Title">Add Wallpaper</sys:String>
+    <sys:String x:Key="AddDialog_DragDropPrompt">Drag and drop video files here</sys:String>
+    <sys:String x:Key="AddDialog_ClickPrompt">or click anywhere to browse files</sys:String>
+    <sys:String x:Key="AddDialog_DropNow">Drop video file here to import</sys:String>
+    <sys:String x:Key="AddDialog_SupportedFormats">Supports MP4, WebM, MKV, AVI, MOV</sys:String>
+    <sys:String x:Key="AddDialog_Processing">Importing and optimizing wallpaper...</sys:String>
+    <sys:String x:Key="AddDialog_Importing">Importing Wallpaper...</sys:String>
+    <sys:String x:Key="AddDialog_ExtractingDetails">Extracting metadata &amp; generating video thumbnail...</sys:String>
+    <sys:String x:Key="AddDialog_NoValidFiles">Please select supported video files (.mp4, .webm, .mkv, .avi, .mov).</sys:String>
+    <sys:String x:Key="AddDialog_Close">Close</sys:String>
+
+    <!-- Edit Wallpaper Dialog -->
+    <sys:String x:Key="EditDialog_Title">Edit Wallpaper</sys:String>
+    <sys:String x:Key="EditDialog_Name">Wallpaper Name</sys:String>
+    <sys:String x:Key="EditDialog_LoopMode">Loop Animation Mode</sys:String>
+    <sys:String x:Key="EditDialog_Cancel">Cancel</sys:String>
+    <sys:String x:Key="EditDialog_Save">Save</sys:String>
+
+    <!-- Settings View -->
+    <sys:String x:Key="Settings_Title">Settings</sys:String>
+    <sys:String x:Key="Settings_General">General</sys:String>
+    <sys:String x:Key="Settings_Theme">Theme</sys:String>
+    <sys:String x:Key="Settings_ThemeDesc">Choose dark or light appearance</sys:String>
+    <sys:String x:Key="Settings_ThemeDark">Dark Mode</sys:String>
+    <sys:String x:Key="Settings_ThemeLight">Light Mode</sys:String>
+    <sys:String x:Key="Settings_Language">Language</sys:String>
+    <sys:String x:Key="Settings_LanguageDesc">Choose application display language</sys:String>
+    <sys:String x:Key="Settings_LangEnglish">English</sys:String>
+    <sys:String x:Key="Settings_LangIndonesian">Bahasa Indonesia</sys:String>
+    <sys:String x:Key="Settings_ConfirmDelete">Confirm before deleting wallpaper</sys:String>
+    <sys:String x:Key="Settings_ConfirmDeleteDesc">Ask for confirmation before removing wallpapers</sys:String>
+    <sys:String x:Key="Settings_Startup">Startup</sys:String>
+    <sys:String x:Key="Settings_StartWithWindows">Start with Windows</sys:String>
+    <sys:String x:Key="Settings_StartWithWindowsDesc">Launch Livy automatically when Windows starts</sys:String>
+    <sys:String x:Key="Settings_StartMinimized">Start minimized</sys:String>
+    <sys:String x:Key="Settings_StartMinimizedDesc">Start Livy in the system tray</sys:String>
+    <sys:String x:Key="Settings_Performance">Performance</sys:String>
+    <sys:String x:Key="Settings_PerformanceMode">Performance Mode</sys:String>
+    <sys:String x:Key="Settings_PerfBalanced">Balanced (Default)</sys:String>
+    <sys:String x:Key="Settings_PerfLowPower">Low Power</sys:String>
+    <sys:String x:Key="Settings_PerfMaxQuality">Maximum Quality</sys:String>
+    <sys:String x:Key="Settings_PauseFullscreen">Pause wallpaper when application is fullscreen</sys:String>
+    <sys:String x:Key="Settings_PauseBattery">Pause wallpaper on battery power</sys:String>
+    <sys:String x:Key="Settings_Audio">Wallpaper Audio</sys:String>
+    <sys:String x:Key="Settings_AudioDesc">Play audio from wallpaper videos</sys:String>
+    <sys:String x:Key="Settings_Volume">Volume</sys:String>
+    <sys:String x:Key="Settings_VolumeDesc">Adjust video wallpaper audio loudness</sys:String>
+    <sys:String x:Key="Settings_Display">Wallpaper</sys:String>
+    <sys:String x:Key="Settings_Scaling">Wallpaper Scaling</sys:String>
+    <sys:String x:Key="Settings_ScalingFill">Fill (Crop to fit screen)</sys:String>
+    <sys:String x:Key="Settings_ScalingFit">Fit (Maintain aspect ratio)</sys:String>
+    <sys:String x:Key="Settings_ScalingStretch">Stretch (Ignore aspect ratio)</sys:String>
+    <sys:String x:Key="Settings_ScalingCenter">Center (Original size)</sys:String>
+    <sys:String x:Key="Settings_DisplayOn">Display on</sys:String>
+    <sys:String x:Key="Settings_DisplayAll">All Monitors</sys:String>
+    <sys:String x:Key="Settings_DisplayPrimary">Primary Monitor Only</sys:String>
+    <sys:String x:Key="Settings_Reset">Reset to Defaults</sys:String>
+    <sys:String x:Key="Settings_WallpaperPreview">Wallpaper Display Preview</sys:String>
+    <sys:String x:Key="Settings_SampleWallpaper">Sample Wallpaper</sys:String>
+    <sys:String x:Key="Settings_DescFill">Wallpaper fills the entire screen, cropping edges if aspect ratios differ.</sys:String>
+    <sys:String x:Key="Settings_DescFit">Entire wallpaper is visible without cropping; black bars may appear on sides.</sys:String>
+    <sys:String x:Key="Settings_DescStretch">Wallpaper is stretched to fill the entire screen, ignoring aspect ratio.</sys:String>
+    <sys:String x:Key="Settings_DescCenter">Wallpaper is centered at its original resolution without scaling.</sys:String>
+    <sys:String x:Key="Settings_DescPrimaryOnly">Active on Primary Monitor only ({0})</sys:String>
+    <sys:String x:Key="Settings_DescAllMonitors">Active across all connected displays ({0} displays)</sys:String>
+
+    <!-- About View -->
+    <sys:String x:Key="About_Tagline">Bring Your Desktop to Life.</sys:String>
+    <sys:String x:Key="About_Version">Version 1.0.0</sys:String>
+    <sys:String x:Key="About_Platform">Made for Windows (x64)</sys:String>
+    <sys:String x:Key="About_Developer">Developer</sys:String>
+    <sys:String x:Key="About_DeveloperName">VemD04</sys:String>
+    <sys:String x:Key="About_VisitGitHub">GitHub</sys:String>
+    <sys:String x:Key="About_Documentation">Guide &amp; Documentation</sys:String>
+    <sys:String x:Key="About_SupportTitle">Support Developer</sys:String>
+    <sys:String x:Key="About_SupportDesc">Support Livy's development to keep it growing, ad-free, and receiving new features and updates.</sys:String>
+    <sys:String x:Key="About_SupportMerchant">Merchant</sys:String>
+    <sys:String x:Key="About_SupportNmid">NMID</sys:String>
+    <sys:String x:Key="About_SupportCopyNmid">Copy NMID</sys:String>
+    <sys:String x:Key="About_SupportCopied">NMID copied to clipboard!</sys:String>
+    <sys:String x:Key="About_SupportStep1">Open your Mobile Banking or e-Wallet app (GoPay, OVO, DANA, etc.)</sys:String>
+    <sys:String x:Key="About_SupportStep2">Select Scan QRIS and point your camera at the barcode</sys:String>
+    <sys:String x:Key="About_SupportStep3">Enter your voluntary support amount</sys:String>
+    <sys:String x:Key="About_SupportThankYou">Thank you so much for your appreciation and support for Livy! ❤️</sys:String>
+    <sys:String x:Key="About_GuideTitle">Wallpaper Usage Guide</sys:String>
+    <sys:String x:Key="About_CrudCreateTitle">1. Adding New Wallpapers</sys:String>
+    <sys:String x:Key="About_CrudCreateDesc">Click the "+ Add Wallpaper" button on the Home page. Choose any supported video file (.mp4, .webm, .mkv, .avi, .mov). Livy will automatically store the video into the local library and generate a thumbnail preview instantly.</sys:String>
+    <sys:String x:Key="About_CrudReadTitle">2. Browsing &amp; Previewing Library</sys:String>
+    <sys:String x:Key="About_CrudReadDesc">Explore your entire wallpaper library on the Home gallery complete with resolution and duration details. Click a thumbnail or the "Preview" button to inspect the video in full screen before applying it to your desktop.</sys:String>
+    <sys:String x:Key="About_CrudUpdateTitle">3. Customizing Info &amp; Loop Modes</sys:String>
+    <sys:String x:Key="About_CrudUpdateDesc">Right-click any wallpaper card and select "Edit" to modify its title or playback loop mode. Choose between Normal, Seamless Ping-Pong (smooth forward-reverse loop), or Crossfade to match your visual taste.</sys:String>
+    <sys:String x:Key="About_CrudDeleteTitle">4. Removing Wallpapers</sys:String>
+    <sys:String x:Key="About_CrudDeleteDesc">Hover over a wallpaper card and click the red trash can icon at the top-left of the thumbnail, or right-click the card and choose "Delete". Confirm the dialog prompt to remove the wallpaper from your library.</sys:String>
+    <sys:String x:Key="About_FeaturesTitle">Key Features</sys:String>
+    <sys:String x:Key="About_AppInfoTitle">About Livy Application</sys:String>
+    <sys:String x:Key="About_AppInfoDesc">Livy is a modern, lightweight, and elegant live wallpaper application crafted to bring your Windows desktop to life without compromising system performance.</sys:String>
+    <sys:String x:Key="About_AppEnginesTitle">Engines &amp; Technologies Used</sys:String>
+    <sys:String x:Key="About_EngineVideoPlayer">Video Player</sys:String>
+    <sys:String x:Key="About_EngineVideoProc">Video Processing</sys:String>
+    <sys:String x:Key="About_EngineHwAccel">GPU Acceleration</sys:String>
+    <sys:String x:Key="About_EngineFramework">Desktop Framework</sys:String>
+    <sys:String x:Key="About_EngineDesktopHook">Desktop Integration</sys:String>
+    <sys:String x:Key="App_AlreadyRunning">Livy is already running in the system tray. Double-click the Livy icon in the taskbar to open it.</sys:String>
+
+    <!-- Welcome View -->
+    <sys:String x:Key="Welcome_Title">Welcome to Livy</sys:String>
+    <sys:String x:Key="Welcome_Tagline">Bring Your Desktop to Life.</sys:String>
+    <sys:String x:Key="Welcome_GetStarted">Get Started</sys:String>
+
+    <!-- Tray Menu -->
+    <sys:String x:Key="Tray_Open">Open Livy</sys:String>
+    <sys:String x:Key="Tray_Pause">Pause Wallpaper</sys:String>
+    <sys:String x:Key="Tray_Resume">Resume Wallpaper</sys:String>
+    <sys:String x:Key="Tray_Settings">Settings</sys:String>
+    <sys:String x:Key="Tray_Exit">Close Livy completely</sys:String>
+
+    <!-- Modern Dialog -->
+    <sys:String x:Key="Dialog_OK">OK</sys:String>
+    <sys:String x:Key="Dialog_Cancel">Cancel</sys:String>
+    <sys:String x:Key="Dialog_Yes">Yes</sys:String>
+    <sys:String x:Key="Dialog_No">No</sys:String>
+
+</ResourceDictionary>
